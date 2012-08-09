@@ -31,5 +31,7 @@
 USE_CAMERA_STUB := true
 USE_PROPRIETARY_AUDIO_EXTENSIONS := false
 
+TARGET_RECOVERY_UI_LIB := librecovery_ui_tilapia
+
 -include vendor/asus/tilapia/BoardConfigVendor.mk
 include device/asus/grouper/BoardConfigCommon.mk
