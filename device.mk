@@ -14,10 +14,6 @@
 # limitations under the License.
 #
 
-# rild
-PRODUCT_PACKAGES += \
-    rild
-
 # the actual meat of the device-specific product definition
 $(call inherit-product, device/asus/grouper/device-common.mk)
 
