@@ -21,7 +21,7 @@ $(call inherit-product, device/asus/grouper/device-common.mk)
 $(call inherit-product-if-exists, vendor/asus/tilapia/device-vendor.mk)
 
 PRODUCT_COPY_FILES += \
-    device/asus/tilapia/init.tilapia.rc:root/init.tilapia.rc
+    device/asus/tilapia/init.grouper.rc:root/init.grouper.rc
 
 DEVICE_PACKAGE_OVERLAYS := \
     device/asus/tilapia/overlay
