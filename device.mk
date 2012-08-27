@@ -20,8 +20,5 @@ $(call inherit-product, device/asus/grouper/device-common.mk)
 # inherit from the non-open-source side, if present
 $(call inherit-product-if-exists, vendor/asus/tilapia/device-vendor.mk)
 
-PRODUCT_COPY_FILES += \
-    device/asus/tilapia/init.grouper.rc:root/init.grouper.rc
-
 DEVICE_PACKAGE_OVERLAYS := \
     device/asus/tilapia/overlay
