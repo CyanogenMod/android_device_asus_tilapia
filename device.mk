@@ -14,11 +14,19 @@
 # limitations under the License.
 #
 
+# rild
+PRODUCT_PACKAGES := \
+    rild
+
+PRODUCT_COPY_FILES := \
+    device/asus/tilapia/init.tilapia.rc:root/init.grouper.rc \
+    device/generic/goldfish/data/etc/apns-conf.xml:system/etc/apns-conf.xml
+
+DEVICE_PACKAGE_OVERLAYS := \
+    device/asus/tilapia/overlay
+
 # the actual meat of the device-specific product definition
 $(call inherit-product, device/asus/grouper/device-common.mk)
 
 # inherit from the non-open-source side, if present
 $(call inherit-product-if-exists, vendor/asus/tilapia/device-vendor.mk)
-
-DEVICE_PACKAGE_OVERLAYS := \
-    device/asus/tilapia/overlay
