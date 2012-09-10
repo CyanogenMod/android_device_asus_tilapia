@@ -3,16 +3,23 @@ import init.grouper.usb.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
 
-    # for backwards compatibility
+on init
+    # See storage config details at http://source.android.com/tech/storage/
+    mkdir /mnt/shell/sdcard0 0700 shell shell
+    mkdir /storage/sdcard0 0000 root root
+
     export EXTERNAL_STORAGE /storage/sdcard0
-    mkdir /storage 0050 system sdcard_r
-    mkdir /storage/sdcard0 0000 system system
+    export ADB_EXTERNAL_STORAGE /mnt/shell/sdcard0/0
+    export MULTIUSER_EXTERNAL_STORAGE /mnt/shell/sdcard0
+
+    # Support legacy paths
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
 
-    # create directory for mounting usb drives
-    mkdir /mnt/usbdrive 0666 system system
-    symlink /mnt/usbdrive /usbdrive
+    # Save bugreports as owner
+    export BUGREPORT_WRITE_PATH /mnt/shell/sdcard0/0
+    export BUGREPORT_READ_PATH /storage/sdcard0
+
 
 on early-boot
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
@@ -32,13 +39,11 @@ on post-fs-data
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
-    # we will remap this as /storage/sdcard0 with the sdcard fuse tool
     mkdir /data/media 0770 media_rw media_rw
-    chown media_rw media_rw /data/media
 
     # change back to bluetooth from system
     chown bluetooth bluetooth /data/misc/bluetooth
-
+    
     mkdir /data/radio 0775 radio radio
     mkdir /data/radio/log 0775 radio radio
 
@@ -297,10 +302,8 @@ service iprenew_eth0 /system/bin/dhcpcd -n
     oneshot
 #Sensor load calibration files end
 
-# create virtual SD card at /storage/sdcard0, based on the /data/media directory
-# deamon will drop to user/group system/media_rw after initializing
-# underlying files in /data/media wil be created with user and group media_rw (1023)
-service sdcard /system/bin/sdcard /data/media 1023 1023
+# virtual sdcard daemon running as media_rw (1023)
+service sdcard /system/bin/sdcard /data/media /mnt/shell/sdcard0 1023 1023
     class late_start
 
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys
