@@ -85,6 +85,9 @@ on boot
     chown radio radio /factory
     chmod 0775 /factory
 
+on property:ro.debuggable=1
+    write /proc/sys/kernel/dmesg_restrict 0
+
 # Sensor
 # iio
     chown system system /dev/iio:device0
