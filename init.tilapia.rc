@@ -229,7 +229,7 @@ on property:ro.debuggable=1
 
 # ril
     chown radio system /sys/devices/virtual/ril/files/crash_dump_onoff
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chown radio system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     chmod 0660 /sys/devices/virtual/ril/files/crash_dump_onoff
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     chown radio system /sys/devices/platform/baseband_xmm_power/xmm_nml_reset
