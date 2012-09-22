@@ -233,6 +233,7 @@ on property:ro.debuggable=1
     chmod 0660 /sys/devices/virtual/ril/files/crash_dump_onoff
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     chown radio system /sys/devices/platform/baseband_xmm_power/xmm_nml_reset
+    chown radio system /sys/devices/platform/baseband_xmm_power/xmm_force_crash
 
 # Load WiFi driver
 
