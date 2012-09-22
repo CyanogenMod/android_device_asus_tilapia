@@ -36,5 +36,7 @@ TARGET_RECOVERY_UI_LIB := librecovery_ui_tilapia
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_tilapia
 TARGET_RECOVERY_UPDATER_EXTRA_LIBS := libIMCdownload libPrgHandler
 
+TARGET_RELEASETOOLS_EXTENSIONS := device/asus/tilapia
+
 -include vendor/asus/tilapia/BoardConfigVendor.mk
 include device/asus/grouper/BoardConfigCommon.mk
