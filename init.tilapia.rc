@@ -235,6 +235,22 @@ on property:ro.debuggable=1
     chown radio system /sys/devices/platform/baseband_xmm_power/xmm_nml_reset
     chown radio system /sys/devices/platform/baseband_xmm_power/xmm_force_crash
 
+# the following settings are used to disable ipv6 on cellular networks that cannot
+# support it. 
+
+on property:ril.ipv6.rmnet0.enable=1
+    write /proc/sys/net/ipv6/conf/rmnet0/disable_ipv6 0
+
+on property:ril.ipv6.rmnet0.enable=0
+    write /proc/sys/net/ipv6/conf/rmnet0/disable_ipv6 1
+
+on property:ril.ipv6.rmnet1.enable=1
+    write /proc/sys/net/ipv6/conf/rmnet1/disable_ipv6 0
+
+on property:ril.ipv6.rmnet1.enable=0
+    write /proc/sys/net/ipv6/conf/rmnet1/disable_ipv6 1
+
+
 # Load WiFi driver
 
 # BB mapping symbolic name to the logging ttyACM port
