@@ -295,6 +295,7 @@
          server=""
          password=""
          mmsc=""
+         protocol="IP"
     />
 
     <apn carrier="Cingular 380 ATT"
