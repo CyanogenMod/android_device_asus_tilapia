@@ -87,13 +87,6 @@ on boot
     chown system system /sys/kernel/tegra_cap/core_cap_state
     chown system system /sys/module/cpu_tegra/parameters/cpu_user_cap
 
-# radio
-    chown radio radio /factory
-    chmod 0775 /factory
-
-on property:ro.debuggable=1
-    write /proc/sys/kernel/dmesg_restrict 0
-
 # Sensor
 # iio
     chown system system /dev/iio:device0
@@ -234,8 +227,19 @@ on property:ro.debuggable=1
     chown radio system /sys/devices/platform/baseband_xmm_power/xmm_force_crash
     chown radio system /sys/class/ril/files/stop_hotplug_detect
 
+
+# Load WiFi driver
+
+# BB mapping symbolic name to the logging ttyACM port
+    symlink /dev/ttyACM2 /dev/log_modem
+
+# Touch
+    chown system system /dev/elan-iap
+    chown system system /proc/ektf_dbg
+    start touch_fw_update
+
 # the following settings are used to disable ipv6 on cellular networks that cannot
-# support it. 
+# support it.
 
 on property:ril.ipv6.rmnet0.enable=1
     write /proc/sys/net/ipv6/conf/rmnet0/disable_ipv6 0
@@ -249,17 +253,9 @@ on property:ril.ipv6.rmnet1.enable=1
 on property:ril.ipv6.rmnet1.enable=0
     write /proc/sys/net/ipv6/conf/rmnet1/disable_ipv6 1
 
+on property:ro.debuggable=1
+    write /proc/sys/kernel/dmesg_restrict 0
 
-# Load WiFi driver
-
-# BB mapping symbolic name to the logging ttyACM port
-    symlink /dev/ttyACM2 /dev/log_modem
-
-# Touch
-    chown system system /dev/elan-iap
-    chown system system /proc/ektf_dbg  
-    start touch_fw_update
- 
 # Write BT BD_ADDR
 service btmacreader /system/bin/btmacreader
     class main
@@ -324,7 +320,7 @@ service iprenew_eth0 /system/bin/dhcpcd -n
     oneshot
 
 #Sensor: load calibration files.
-    service sensors-config /system/bin/sensors-config
+service sensors-config /system/bin/sensors-config
     class main
     user root
     oneshot
@@ -342,8 +338,7 @@ service bugreport /system/bin/bugmailer.sh -b /system/media/audio/ui/Dock.ogg -e
     keycodes 115 114
 
 # Start GPS daemon
-  on boot
-  service gps-daemon /system/bin/glgps -c /system/etc/gps/gpsconfig.xml
+service gps-daemon /system/bin/glgps -c /system/etc/gps/gpsconfig.xml
   user gps
   group system
   class late_start
