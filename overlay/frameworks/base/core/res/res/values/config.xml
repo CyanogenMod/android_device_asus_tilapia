@@ -183,8 +183,8 @@
     <!-- This device is not "voice capable"; it's data-only. -->
     <bool name="config_voice_capable">false</bool>
 
-    <!-- This device does not allow sms service. -->
-    <bool name="config_sms_capable">false</bool>
+    <!-- This device does allow sms service. -->
+    <bool name="config_sms_capable">true</bool>
 
     <!-- Enable puk unlockscreen -->
     <bool name="config_enable_puk_unlock_screen">true</bool>
