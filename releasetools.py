@@ -26,9 +26,9 @@ def FullOTA_InstallEnd(info):
     WriteBootloader(info, bootloader_bin)
 
   try:
-    radio_img = info.input_zip.read("RADIO/SAM_6260_ALL.fls")
+    radio_img = info.input_zip.read("RADIO/radio.raw")
   except KeyError:
-    print "no SAM_6260_ALL.fls in target_files; skipping install"
+    print "no radio.raw in target_files; skipping install"
   else:
     WriteRadio(info, radio_img)
 
@@ -49,9 +49,9 @@ def IncrementalOTA_InstallEnd(info):
     print "no bootloader.raw in target target_files; skipping install"
 
   try:
-    target_radio_img = info.target_zip.read("RADIO/SAM_6260_ALL.fls")
+    target_radio_img = info.target_zip.read("RADIO/radio.raw")
     try:
-      source_radio_img = info.source_zip.read("RADIO/SAM_6260_ALL.fls")
+      source_radio_img = info.source_zip.read("RADIO/radio.raw")
     except KeyError:
       source_radio_img = None
 
@@ -60,7 +60,7 @@ def IncrementalOTA_InstallEnd(info):
     else:
       WriteRadio(info, target_radio_img)
   except KeyError:
-    print "no radio.img in target_files; skipping install"
+    print "no radio.raw in target_files; skipping install"
 
 
 def WriteBootloader(info, bootloader_bin):
@@ -73,10 +73,13 @@ def WriteBootloader(info, bootloader_bin):
                           (fstab["/staging"].device,))
 
 def WriteRadio(info, radio_img):
-  common.ZipWriteStr(info.output_zip, "SAM_6260_ALL.fls", radio_img)
+  common.ZipWriteStr(info.output_zip, "radio.raw", radio_img)
   fstab = info.info_dict["fstab"]
 
   info.script.Print("Writing radio...")
-  info.script.AppendExtra("""assert(package_extract_file("SAM_6260_ALL.fls", "/tmp/SAM_6260_ALL.fls"),
-                          bach.update_modem("/tmp/SAM_6260_ALL.fls"),
-                          delete("/tmp/SAM_6260_ALL.fls"));""")
+
+  info.script.AppendExtra("""assert(package_extract_file("radio.raw", "%s"),
+                          mount("ext4", "EMMC", "%s", "/radio"),
+                          bach.update_modem("/radio/SAM_6260_ALL.fls"),
+                          unmount("/radio"));""" %
+                          (fstab["/radio"].device, fstab["/radio"].device))
