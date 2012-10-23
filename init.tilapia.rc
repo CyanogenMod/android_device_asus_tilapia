@@ -259,9 +259,6 @@ on property:ril.ipv6.rmnet1.enable=1
 on property:ril.ipv6.rmnet1.enable=0
     write /proc/sys/net/ipv6/conf/rmnet1/disable_ipv6 1
 
-on property:ro.debuggable=1
-    write /proc/sys/kernel/dmesg_restrict 0
-
 # Write BT BD_ADDR
 service btmacreader /system/bin/btmacreader
     class main
