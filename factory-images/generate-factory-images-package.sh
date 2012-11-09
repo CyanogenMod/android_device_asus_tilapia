@@ -16,14 +16,15 @@
 
 # start jb-mr1-dev
 # 521994 = JOP32B
+# 526897 = JOP39B
 # end jb-mr1-dev
 
 source ../../../common/clear-factory-images-variables.sh
-BUILD=521994
+BUILD=526897
 DEVICE=tilapia
 PRODUCT=nakasig
-VERSION=jop32b
-#SRCPREFIX=signed-
+VERSION=jop39b
+SRCPREFIX=signed-
 BOOTLOADERFILE=bootloader.bin
 BOOTLOADER=4.13
 RADIOFILE=radio.img
