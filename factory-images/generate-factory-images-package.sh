@@ -32,5 +32,6 @@ BOOTLOADER=4.13
 RADIOFILE=radio.img
 RADIO=1231_0.10.0_1021
 SLEEPDURATION=10
+UNLOCKBOOTLOADER=true
 ERASEALL=true
 source ../../../common/generate-factory-images-common.sh
