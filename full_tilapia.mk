@@ -30,3 +30,6 @@ PRODUCT_NAME := full_tilapia
 PRODUCT_DEVICE := tilapia
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := Full Android on Tilapia
+
+# Don't restrict vendor folder
+PRODUCT_RESTRICT_VENDOR_FILES := false
