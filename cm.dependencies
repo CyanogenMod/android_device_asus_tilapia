@@ -2,7 +2,7 @@
     {
       "repository": "android_kernel_asus_grouper",
       "target_path": "kernel/asus/grouper",
-      "branch": "jellybean"
+      "branch": "mr1-staging"
     },
     {
       "repository": "android_device_asus_grouper",
