@@ -21,17 +21,20 @@
 # 527662 = JOP40C
 # 533553 = JOP40D
 # end jb-mr1-dev
+# start jb-mr1.1-dev
+# 551245 = JDP82
+# end jb-mr1.1-dev
 
 source ../../../common/clear-factory-images-variables.sh
-BUILD=533553
+BUILD=551245
 DEVICE=tilapia
 PRODUCT=nakasig
-VERSION=jop40d
+VERSION=jdp82
 SRCPREFIX=signed-
 BOOTLOADERFILE=bootloader.bin
-BOOTLOADER=4.13
+BOOTLOADER=4.18
 RADIOFILE=radio.img
-RADIO=1231_0.10.0_1021
+RADIO=1231_0.17.0_1205
 SLEEPDURATION=10
 UNLOCKBOOTLOADER=true
 ERASEALL=true
