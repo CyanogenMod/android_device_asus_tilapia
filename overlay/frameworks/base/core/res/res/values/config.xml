@@ -183,7 +183,7 @@
     <integer name="config_screenBrightnessDim">5</integer>
 
     <!-- This device is not "voice capable"; it's data-only. -->
-    <bool name="config_voice_capable">false</bool>
+    <bool name="config_voice_capable">true</bool>
 
     <!-- This device does allow sms service. -->
     <bool name="config_sms_capable">true</bool>
