@@ -23,13 +23,14 @@
 # end jb-mr1-dev
 # start jb-mr1.1-dev
 # 551245 = JDP82
+# 573038 = JDQ39
 # end jb-mr1.1-dev
 
 source ../../../common/clear-factory-images-variables.sh
-BUILD=551245
+BUILD=573038
 DEVICE=tilapia
 PRODUCT=nakasig
-VERSION=jdp82
+VERSION=jdq39
 SRCPREFIX=signed-
 BOOTLOADERFILE=bootloader.bin
 BOOTLOADER=4.18
