@@ -259,11 +259,6 @@ on property:ril.ipv6.rmnet1.enable=1
 on property:ril.ipv6.rmnet1.enable=0
     write /proc/sys/net/ipv6/conf/rmnet1/disable_ipv6 1
 
-# Write BT BD_ADDR
-service btmacreader /system/bin/btmacreader
-    class main
-    oneshot
-
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin
     #   we will start as root and wpa_supplicant will switch to user wifi
