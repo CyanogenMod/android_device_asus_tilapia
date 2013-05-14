@@ -13,7 +13,7 @@
 # limitations under the License.
 
 ifeq ($(TARGET_ARCH),arm)
-ifeq (tilapia,$(TARGET_DEVICE)))
+ifeq ($(TARGET_DEVICE),tilapia)
 
 LOCAL_PATH := $(call my-dir)
 
