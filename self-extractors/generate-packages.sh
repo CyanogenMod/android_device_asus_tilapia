@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (C) 2010 The Android Open Source Project
+# Copyright 2010 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,7 +21,10 @@
 # 551245 = JDP82
 # 573038 = JDQ39
 # end jb-mr1.1-dev
-BRANCH=jb-mr1.1-dev
+# start jb-mr2-dev
+# 681336 = JWR50
+# end jb-mr2-dev
+BRANCH=jb-mr2-dev
 if test $BRANCH = jb-mr1-dev
 then
   ZIP=nakasig-ota-561924.zip
@@ -32,6 +35,11 @@ then
   ZIP=nakasig-ota-573038.zip
   BUILD=jdq39
 fi # jb-mr1.1-dev
+if test $BRANCH = jb-mr2-dev
+then
+  ZIP=nakasig-ota-681336
+  BUILD=jwr50
+fi # jb-mr2-dev
 ROOTDEVICE=tilapia
 DEVICE=tilapia
 MANUFACTURER=asus
