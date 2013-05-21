@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (C) 2011 The Android Open Source Project
+# Copyright 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,17 +25,20 @@
 # 551245 = JDP82
 # 573038 = JDQ39
 # end jb-mr1.1-dev
+# start jb-mr2-dev
+# 683083 = JWR51
+# end jb-mr2-dev
 
 source ../../../common/clear-factory-images-variables.sh
-BUILD=573038
+BUILD=683083
 DEVICE=tilapia
 PRODUCT=nakasig
-VERSION=jdq39
-SRCPREFIX=signed-
+VERSION=jwr51
+#SRCPREFIX=signed-
 BOOTLOADERFILE=bootloader.bin
-BOOTLOADER=4.18
+BOOTLOADER=4.23
 RADIOFILE=radio.img
-RADIO=1231_0.17.0_1205
+RADIO=1231_0.18.0_0409
 SLEEPDURATION=10
 UNLOCKBOOTLOADER=true
 ERASEALL=true
