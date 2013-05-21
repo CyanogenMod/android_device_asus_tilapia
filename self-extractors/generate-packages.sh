@@ -46,7 +46,6 @@ do
   case $COMPANY in
   asus)
     TO_EXTRACT="\
-            system/bin/btmacreader \
             system/bin/sensors-config \
             system/etc/apns-conf.xml \
             system/lib/hw/camera.tegra3.so \
