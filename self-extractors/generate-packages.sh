@@ -30,6 +30,7 @@
 # 690834 = JWR59
 # 692263 = JWR60
 # 695489 = JWR64
+# 699533 = JWR66
 # end jb-mr2-dev
 BRANCH=jb-mr2-dev
 if test $BRANCH = jb-mr1-dev
@@ -44,8 +45,8 @@ then
 fi # jb-mr1.1-dev
 if test $BRANCH = jb-mr2-dev
 then
-  ZIP=nakasig-ota-695489
-  BUILD=jwr64
+  ZIP=nakasig-ota-699533
+  BUILD=jwr66
 fi # jb-mr2-dev
 ROOTDEVICE=tilapia
 DEVICE=tilapia
