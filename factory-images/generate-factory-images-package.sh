@@ -29,14 +29,15 @@
 # 683083 = JWR51
 # 689345 = JWR58
 # 690834 = JWR59
+# 704243 = JWR59G
 # end jb-mr2-dev
 
 source ../../../common/clear-factory-images-variables.sh
-BUILD=690834
+BUILD=704243
 DEVICE=tilapia
 PRODUCT=nakasig
-VERSION=jwr59
-#SRCPREFIX=signed-
+VERSION=jwr66g
+SRCPREFIX=signed-
 BOOTLOADERFILE=bootloader.bin
 BOOTLOADER=4.23
 RADIOFILE=radio.img
