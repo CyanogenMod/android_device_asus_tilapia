@@ -34,36 +34,10 @@ const char* ITEMS[] = { "reboot system now",
                         "wipe cache partition",
                         NULL };
 
-class TilapiaUI : public ScreenRecoveryUI {
-  public:
-    TilapiaUI() :
-        consecutive_power_keys(0) {
-    }
-
-    virtual KeyAction CheckKey(int key) {
-        if (IsKeyPressed(KEY_POWER) && key == KEY_VOLUMEUP) {
-            return TOGGLE;
-        }
-        if (key == KEY_POWER) {
-            ++consecutive_power_keys;
-            if (consecutive_power_keys >= 7) {
-                return REBOOT;
-            }
-        } else {
-            consecutive_power_keys = 0;
-        }
-        return ENQUEUE;
-    }
-
-  private:
-    int consecutive_power_keys;
-};
-
-
 class TilapiaDevice : public Device {
   public:
     TilapiaDevice() :
-        ui(new TilapiaUI) {
+        ui(new ScreenRecoveryUI) {
     }
 
     RecoveryUI* GetUI() { return ui; }
