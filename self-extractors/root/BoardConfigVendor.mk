@@ -1,4 +1,3 @@
-#
 # Copyright (C) 2010 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,22 +11,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-# rild
-PRODUCT_PACKAGES := \
-    rild \
-    BasicSmsReceiver
+LOCAL_STEM := tilapia/BoardConfigPartial.mk
 
-PRODUCT_COPY_FILES := \
-    device/asus/tilapia/fstab.grouper:root/fstab.grouper \
-    device/asus/tilapia/init.tilapia.rc:root/init.grouper.rc
-
-DEVICE_PACKAGE_OVERLAYS := \
-    device/asus/tilapia/overlay
-
-# the actual meat of the device-specific product definition
-$(call inherit-product, device/asus/grouper/device-common.mk)
-
-# inherit from the non-open-source side, if present
-$(call inherit-product-if-exists, vendor/asus/tilapia/device-vendor.mk)
+-include vendor/asus/$(LOCAL_STEM)
+-include vendor/broadcom/$(LOCAL_STEM)
+-include vendor/elan/$(LOCAL_STEM)
+-include vendor/invensense/$(LOCAL_STEM)
+-include vendor/nvidia/$(LOCAL_STEM)
+-include vendor/nxp/$(LOCAL_STEM)
+-include vendor/widevine/$(LOCAL_STEM)
