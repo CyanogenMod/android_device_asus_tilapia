@@ -17,7 +17,6 @@
 /system/bin/glgps
 /system/bin/sensors-config
 /system/bin/tf_daemon
-/system/etc/apns-conf.xml
 /system/etc/firmware/bcm4330.hcd
 /system/etc/firmware/nvavp_os_00001000.bin
 /system/etc/firmware/nvavp_os_0ff00000.bin
