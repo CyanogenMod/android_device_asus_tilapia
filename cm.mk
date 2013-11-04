@@ -8,8 +8,8 @@ TARGET_SCREEN_WIDTH := 800
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 
-# Inherit GSM common stuff
-$(call inherit-product, vendor/cm/config/gsm.mk)
+# Inherit telephony common stuff
+$(call inherit-product, vendor/cm/config/telephony.mk)
 
 # Enhanced NFC
 $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
