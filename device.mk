@@ -16,12 +16,13 @@
 
 # rild
 PRODUCT_PACKAGES := \
-    rild \
-    BasicSmsReceiver
-
+    rild
+    
 PRODUCT_COPY_FILES := \
     device/asus/tilapia/fstab.grouper:root/fstab.grouper \
     device/asus/tilapia/init.tilapia.rc:root/init.grouper.rc
+
+PRODUCT_CHARACTERISTICS := nosdcard
 
 DEVICE_PACKAGE_OVERLAYS := \
     device/asus/tilapia/overlay
