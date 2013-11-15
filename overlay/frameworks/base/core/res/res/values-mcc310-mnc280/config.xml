@@ -44,4 +44,6 @@
     <string name="mobile_provisioning_url">
         https://buyasession.att.com/sbd/unauth/InitiateSBD.action?ICCID=%1$s&amp;IMEI=%2$s&amp;version=3.0
     </string>
+
+    <bool name="config_restartRadioAfterProvisioning">true</bool>
 </resources>
