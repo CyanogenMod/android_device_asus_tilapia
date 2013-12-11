@@ -35,12 +35,12 @@
 # end jb-mr2-dev
 
 source ../../../common/clear-factory-images-variables.sh
-BUILD=737497
+BUILD=937116
 DEVICE=tilapia
 PRODUCT=nakasig
-VERSION=jwr66v
+VERSION=kot49h
 SRCPREFIX=signed-
-BOOTLOADERFILE=bootloader.bin
+BOOTLOADERFILE=bootloader.img
 BOOTLOADER=4.23
 RADIOFILE=radio.img
 RADIO=1231_0.18.0_0409
