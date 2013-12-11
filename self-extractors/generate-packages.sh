@@ -37,7 +37,7 @@
 # 736095 = JWR66U
 # 737497 = JWR66V
 # end jb-mr2-dev
-BRANCH=jb-mr2-dev
+BRANCH=klp-dev
 if test $BRANCH = jb-mr1-dev
 then
   ZIP=nakasig-ota-561924.zip
@@ -53,6 +53,11 @@ then
   ZIP=nakasig-ota-737497
   BUILD=jwr66v
 fi # jb-mr2-dev
+if test $BRANCH = klp-dev
+then
+  ZIP=nakasig-ota-937116
+  BUILD=kot49h
+fi # klp-dev
 ROOTDEVICE=tilapia
 DEVICE=tilapia
 MANUFACTURER=asus
