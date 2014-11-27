@@ -403,7 +403,7 @@ service sensors-config /system/bin/sensors-config
 #Sensor load calibration files end
 
 # virtual sdcard daemon running as media_rw (1023)
-service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
+service sdcard /system/bin/sdcard -u 1023 -g 1023 -t 4 -l /data/media /mnt/shell/emulated
     class late_start
 
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys
