@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2015 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -213,7 +213,7 @@ LOCAL_PATH := \$(call my-dir)
 ifeq (\$(TARGET_DEVICE),tilapia)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := btmacreader   
+LOCAL_MODULE := btmacreader
 LOCAL_MODULE_OWNER := broadcom
 LOCAL_SRC_FILES := btmacreader
 LOCAL_MODULE_TAGS := optional
@@ -232,7 +232,7 @@ LOCAL_MODULE_PATH := \$(TARGET_OUT)/lib/hw
 include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := libdrmwvmplugin   
+LOCAL_MODULE := libdrmwvmplugin
 LOCAL_MODULE_OWNER := widevine
 LOCAL_SRC_FILES := libdrmwvmplugin.so
 LOCAL_MODULE_TAGS := optional
@@ -242,7 +242,7 @@ LOCAL_MODULE_PATH := \$(TARGET_OUT_VENDOR)/lib/drm
 include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := libsensors.lightsensor   
+LOCAL_MODULE := libsensors.lightsensor
 LOCAL_MODULE_OWNER := asus
 LOCAL_SRC_FILES := libsensors.lightsensor.so
 LOCAL_MODULE_TAGS := optional
@@ -252,7 +252,7 @@ LOCAL_MODULE_PATH := \$(TARGET_OUT)/lib
 include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := libwvm   
+LOCAL_MODULE := libwvm
 LOCAL_MODULE_OWNER := widevine
 LOCAL_SRC_FILES := libwvm.so
 LOCAL_MODULE_TAGS := optional
@@ -262,7 +262,7 @@ LOCAL_MODULE_PATH := \$(TARGET_OUT_VENDOR)/lib
 include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := sensors.grouper   
+LOCAL_MODULE := sensors.grouper
 LOCAL_MODULE_OWNER := asus
 LOCAL_SRC_FILES := sensors.grouper.so
 LOCAL_MODULE_TAGS := optional
@@ -272,7 +272,7 @@ LOCAL_MODULE_PATH := \$(TARGET_OUT)/lib/hw
 include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := sensors-config   
+LOCAL_MODULE := sensors-config
 LOCAL_MODULE_OWNER := nvidia
 LOCAL_SRC_FILES := sensors-config
 LOCAL_MODULE_TAGS := optional
@@ -281,7 +281,7 @@ LOCAL_MODULE_PATH := \$(TARGET_OUT)/bin
 include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := tf_daemon   
+LOCAL_MODULE := tf_daemon
 LOCAL_MODULE_OWNER := nvidia
 LOCAL_SRC_FILES := tf_daemon
 LOCAL_MODULE_TAGS := optional
