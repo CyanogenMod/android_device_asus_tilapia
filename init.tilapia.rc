@@ -40,15 +40,22 @@ on fs
     mount_all /fstab.grouper
 
 on post-fs-data
-    mkdir /data/misc/wifi 0770 wifi wifi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chown dhcp dhcp /data/misc/dhcp
-
     mkdir /data/media 0770 media_rw media_rw
 
     # change back to bluetooth from system
     chown bluetooth net_bt_stack /data/misc/bluetooth
+
+    # sensors-config
+    mkdir /data/sensors 751
+    # /data/sensors was owned by system/system earlier.
+    # Force it to root/root if it already exists.
+    chown root root /data/sensors
+    mkdir /data/lightsensor 751
+    # /data/lightsensor was owned by system/system earlier.
+    # Force it to root/root if it already exists.
+    chown root root /data/lightsensor
+    mkdir /data/calibration
+    mkdir /data/amit
     
     mkdir /data/radio 0775 radio radio
     mkdir /data/radio/log 0775 radio radio
@@ -264,6 +271,10 @@ on boot
 # Interactive governor settings
     chown system system /sys/devices/system/cpu/cpufreq/interactive/boost_factor
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boost_factor
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/core_lock_count
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/core_lock_count
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/core_lock_period
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/core_lock_period
     chown system system /sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load
     chown system system /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
@@ -327,7 +338,6 @@ on property:ril.ipv6.rmnet1.enable=0
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
-    -O/data/misc/wifi/sockets \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
     #   we will start as root and wpa_supplicant will switch to user wifi
     #   after setting up the capabilities required for WEXT
@@ -340,8 +350,7 @@ service wpa_supplicant /system/bin/wpa_supplicant \
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf \
-    -I/system/etc/wifi/wpa_supplicant_overlay.conf \
-    -O/data/misc/wifi/sockets -N \
+    -I/system/etc/wifi/wpa_supplicant_overlay.conf -N \
     -ip2p0 -Dnl80211 -c /data/misc/wifi/p2p_supplicant.conf \
     -I/system/etc/wifi/p2p_supplicant_overlay.conf \
     -puse_p2p_group_interface=1 -e/data/misc/wifi/entropy.bin \
@@ -403,7 +412,7 @@ service sensors-config /system/bin/sensors-config
 #Sensor load calibration files end
 
 # virtual sdcard daemon running as media_rw (1023)
-service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
+service sdcard /system/bin/sdcard -u 1023 -g 1023 -t 4 -l /data/media /mnt/shell/emulated
     class late_start
 
 service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk
@@ -412,8 +421,7 @@ service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw
 
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys
 service bugreport /system/bin/dumpstate -d -p -B \
-        -o /data/data/com.android.shell/files/bugreports/bugreport \
-        -b /system/media/audio/ui/Dock.ogg -e /system/media/audio/ui/Undock.ogg
+        -o /data/data/com.android.shell/files/bugreports/bugreport
     class main
     disabled
     oneshot
@@ -445,10 +453,6 @@ service tf_daemon /system/bin/tf_daemon -storageDir /data/tf -d
 # may restart due to /data/tf not existing yet
 on property:init.svc.tf_daemon=restarting
     mkdir /data/tf
-
-#Raydium touch setting
-service rm_ts_service    /system/bin/rm_ts_server
-    class main
 
 # create filesystems if necessary
 service setup_fs /system/bin/setup_fs \
