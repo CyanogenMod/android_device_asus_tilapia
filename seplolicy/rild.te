@@ -1,0 +1,2 @@
+allow rild net_radio_prop:property_service set;
+allow rild sysfs:file write;

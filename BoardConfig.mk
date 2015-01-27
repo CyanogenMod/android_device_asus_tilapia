@@ -29,14 +29,45 @@
 # we set USE_PROPRIETARY_AUDIO_EXTENSIONS to true in the proprietary variant as
 # well.
 
+BOARD_VENDOR := asus
+
 USE_CAMERA_STUB := true
 USE_PROPRIETARY_AUDIO_EXTENSIONS := false
 
-TARGET_RECOVERY_UI_LIB := librecovery_ui_tilapia
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_tilapia
+TARGET_RECOVERY_UPDATER_EXTRA_LIBS := libIMCdownload libPrgHandler
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/asus/tilapia
+
+BOARD_HAL_STATIC_LIBRARIES := libdumpstate.grouper
 
 -include vendor/asus/tilapia/BoardConfigVendor.mk
 include device/asus/grouper/BoardConfigCommon.mk
 
 TARGET_RECOVERY_FSTAB = device/asus/tilapia/fstab.grouper
+
+MALLOC_IMPL := dlmalloc
+
+BOARD_SEPOLICY_DIRS += \
+        device/asus/tilapia/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+		file_contexts \
+		genfs_contexts \
+		bluetooth.te \
+		device.te \
+		domain.te \
+		drmserver.te \
+		init_shell.te \
+		file.te \
+		gpsd.te \
+		keystore.te \
+		 lmkd.te \
+		mediaserver.te \
+		rild.te \
+		sensors_config.te \
+		surfaceflinger.te \
+		system_app.te \
+		system_server.te \
+		ueventd.te \
+		vold.te

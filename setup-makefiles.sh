@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2015 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -87,104 +87,104 @@ EOF
 
 # Asus blob(s) necessary for Tilapia hardware
 PRODUCT_PACKAGES := \\
-    btmacreader \\
-    camera.tegra3 \\
-    libdrmwvmplugin \\
-    libsensors.lightsensor \\
-    libwvm \\
-    sensors.grouper \\
-    sensors-config \\
-    tf_daemon \\
+btmacreader \\
+camera.tegra3 \\
+libdrmwvmplugin \\
+libsensors.lightsensor \\
+libwvm \\
+sensors.grouper \\
+sensors-config \\
+tf_daemon \\
 
 # Broadcom blob(s) necessary for Tilapia hardware
 PRODUCT_PACKAGES += \\
-    glgps \\
-    gps.tegra3 \\
-    gpsconfig \\
-    bcm4330
+glgps \\
+gps.tegra3 \\
+gpsconfig \\
+bcm4330
 
 # NVIDIA blob(s) necessary for Tilapia hardware
 PRODUCT_PACKAGES += \\
-    nvavp_os_00001000 \\
-    nvavp_os_0ff00000 \\
-    nvavp_os_e0000000 \\
-    nvavp_os_eff00000 \\
-    nvavp_vid_ucode_alt \\
-    nvcamera \\
-    nvram \\
-    libEGL_tegra \\
-    libGLESv1_CM_tegra \\
-    libGLESv2_tegra \\
-    gralloc.tegra3 \\
-    hwcomposer.tegra3 \\
-    libardrv_dynamic \\
-    libcgdrv \\
-    libnvapputil \\
-    libnvasfparserhal \\
-    libnvaviparserhal \\
-    libnvavp \\
-    libnvcamerahdr \\
-    libnvddk_2d_v2 \\
-    libnvddk_2d \\
-    libnvdispmgr_d \\
-    libnvmm_audio \\
-    libnvmm_camera \\
-    libnvmm_contentpipe \\
-    libnvmm_image \\
-    libnvmm_manager \\
-    libnvmm_misc \\
-    libnvmm_parser \\
-    libnvmm_service \\
-    libnvmm_utils \\
-    libnvmm_video \\
-    libnvmm_writer \\
-    libnvmm \\
-    libnvmmlite \\
-    libnvmmlite_audio \\
-    libnvmmlite_image \\
-    libnvmmlite_utils \\
-    libnvmmlite_video \\
-    libnvodm_dtvtuner \\
-    libnvodm_hdmi \\
-    libnvodm_imager \\
-    libnvodm_misc \\
-    libnvodm_query \\
-    libnvomx \\
-    libnvomxilclient \\
-    libnvos \\
-    libnvparser \\
-    libnvrm_graphics \\
-    libnvrm \\
-    libnvsm \\
-    libnvtvmr \\
-    libnvwinsys \\
-    libnvwsi \\
-    libstagefrighthw \\
-    libtf_crypto_sst
+nvavp_os_00001000 \\
+nvavp_os_0ff00000 \\
+nvavp_os_e0000000 \\
+nvavp_os_eff00000 \\
+nvavp_vid_ucode_alt \\
+nvcamera \\
+nvram \\
+libEGL_tegra \\
+libGLESv1_CM_tegra \\
+libGLESv2_tegra \\
+gralloc.tegra3 \\
+hwcomposer.tegra3 \\
+libardrv_dynamic \\
+libcgdrv \\
+libnvapputil \\
+libnvasfparserhal \\
+libnvaviparserhal \\
+libnvavp \\
+libnvcamerahdr \\
+libnvddk_2d_v2 \\
+libnvddk_2d \\
+libnvdispmgr_d \\
+libnvmm_audio \\
+libnvmm_camera \\
+libnvmm_contentpipe \\
+libnvmm_image \\
+libnvmm_manager \\
+libnvmm_misc \\
+libnvmm_parser \\
+libnvmm_service \\
+libnvmm_utils \\
+libnvmm_video \\
+libnvmm_writer \\
+libnvmm \\
+libnvmmlite \\
+libnvmmlite_audio \\
+libnvmmlite_image \\
+libnvmmlite_utils \\
+libnvmmlite_video \\
+libnvodm_dtvtuner \\
+libnvodm_hdmi \\
+libnvodm_imager \\
+libnvodm_misc \\
+libnvodm_query \\
+libnvomx \\
+libnvomxilclient \\
+libnvos \\
+libnvparser \\
+libnvrm_graphics \\
+libnvrm \\
+libnvsm \\
+libnvtvmr \\
+libnvwinsys \\
+libnvwsi \\
+libstagefrighthw \\
+libtf_crypto_sst
 
 # Widevine blob(s) necessary for Tilapia hardware
 PRODUCT_PACKAGES += \\
-    libdrmdecrypt \\
-    libwvdrm_L1 \\
-    libWVStreamControlAPI_L1
+libdrmdecrypt \\
+libwvdrm_L1 \\
+libWVStreamControlAPI_L1
 
 # Invensense blob(s) necessary for Tilapia hardware
 PRODUCT_PACKAGES += \\
-    libinvensense_hal \\
-    libmllite \\
-    libmplmpu
+libinvensense_hal \\
+libmllite \\
+libmplmpu
 
 # Elan blob(s) necessary for Tilapia hardware
 PRODUCT_PACKAGES += \\
-    touch_fw
+touch_fw
 
 # NXP blob(s) necessary for Tilapia hardware
 PRODUCT_PACKAGES += \\
-    libpn544_fw
+libpn544_fw
 
 # Radio blob(s) nessiary for Tilapia hardware
 PRODUCT_PACKAGES += \\
-    libxgold-ril
+libxgold-ril
 
 EOF
 
@@ -213,7 +213,7 @@ LOCAL_PATH := \$(call my-dir)
 ifeq (\$(TARGET_DEVICE),tilapia)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := btmacreader   
+LOCAL_MODULE := btmacreader
 LOCAL_MODULE_OWNER := broadcom
 LOCAL_SRC_FILES := btmacreader
 LOCAL_MODULE_TAGS := optional
@@ -232,7 +232,7 @@ LOCAL_MODULE_PATH := \$(TARGET_OUT)/lib/hw
 include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := libdrmwvmplugin   
+LOCAL_MODULE := libdrmwvmplugin
 LOCAL_MODULE_OWNER := widevine
 LOCAL_SRC_FILES := libdrmwvmplugin.so
 LOCAL_MODULE_TAGS := optional
@@ -242,7 +242,7 @@ LOCAL_MODULE_PATH := \$(TARGET_OUT_VENDOR)/lib/drm
 include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := libsensors.lightsensor   
+LOCAL_MODULE := libsensors.lightsensor
 LOCAL_MODULE_OWNER := asus
 LOCAL_SRC_FILES := libsensors.lightsensor.so
 LOCAL_MODULE_TAGS := optional
@@ -252,7 +252,7 @@ LOCAL_MODULE_PATH := \$(TARGET_OUT)/lib
 include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := libwvm   
+LOCAL_MODULE := libwvm
 LOCAL_MODULE_OWNER := widevine
 LOCAL_SRC_FILES := libwvm.so
 LOCAL_MODULE_TAGS := optional
@@ -262,7 +262,7 @@ LOCAL_MODULE_PATH := \$(TARGET_OUT_VENDOR)/lib
 include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := sensors.grouper   
+LOCAL_MODULE := sensors.grouper
 LOCAL_MODULE_OWNER := asus
 LOCAL_SRC_FILES := sensors.grouper.so
 LOCAL_MODULE_TAGS := optional
@@ -272,7 +272,7 @@ LOCAL_MODULE_PATH := \$(TARGET_OUT)/lib/hw
 include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := sensors-config   
+LOCAL_MODULE := sensors-config
 LOCAL_MODULE_OWNER := nvidia
 LOCAL_SRC_FILES := sensors-config
 LOCAL_MODULE_TAGS := optional
@@ -281,7 +281,7 @@ LOCAL_MODULE_PATH := \$(TARGET_OUT)/bin
 include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := tf_daemon   
+LOCAL_MODULE := tf_daemon
 LOCAL_MODULE_OWNER := nvidia
 LOCAL_SRC_FILES := tf_daemon
 LOCAL_MODULE_TAGS := optional

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright 2012, The Android Open Source Project
+** Copyright 2013, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
+    <!-- AT&T -->
     <string-array translatable="false" name="config_tether_usb_regexs">
     </string-array>
 
@@ -37,4 +38,12 @@
          provisioning on some carriers, working around a bug (7305641)
          where if the preferred is used we don't try the others. -->
     <bool name="config_dontPreferApn">true</bool>
+
+    <string name="mobile_provisioning_apn">lwaactivate</string>
+
+    <string name="mobile_provisioning_url">
+        https://buyasession.att.com/sbd/unauth/InitiateSBD.action?ICCID=%1$s&amp;IMEI=%2$s&amp;version=3.0
+    </string>
+
+    <bool name="config_restartRadioAfterProvisioning">true</bool>
 </resources>

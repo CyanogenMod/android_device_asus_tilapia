@@ -21,6 +21,7 @@ PRODUCT_PACKAGES := \
 
 PRODUCT_COPY_FILES := \
     device/asus/tilapia/fstab.grouper:root/fstab.grouper \
+    device/asus/tilapia/init.recovery.tilapia.rc:root/init.recovery.grouper.rc \
     device/asus/tilapia/init.tilapia.rc:root/init.grouper.rc
 
 DEVICE_PACKAGE_OVERLAYS := \
