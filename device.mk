@@ -27,6 +27,10 @@ PRODUCT_COPY_FILES := \
 DEVICE_PACKAGE_OVERLAYS := \
     device/asus/tilapia/overlay
 
+# Allow tethering without provisioning app
+PRODUCT_PROPERTY_OVERRIDES += \
+    net.tethering.noprovisioning=true
+
 # the actual meat of the device-specific product definition
 $(call inherit-product, device/asus/grouper/device-common.mk)
 
