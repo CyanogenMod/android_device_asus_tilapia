@@ -30,7 +30,7 @@
     <string name="velocity_tracker_impl" translatable="false">noisy</string>
 
     <!-- Show camera affordance on Keyguard -->
-    <bool name="config_keyguardShowCameraAffordance">true</bool>
+    <bool name="config_keyguardShowCameraAffordance">false</bool>
 
     <!-- Disable expensive shadows -->
     <bool name="config_recents_fake_shadows">true</bool>
