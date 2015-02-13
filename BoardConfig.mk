@@ -47,27 +47,3 @@ include device/asus/grouper/BoardConfigCommon.mk
 TARGET_RECOVERY_FSTAB = device/asus/tilapia/fstab.grouper
 
 MALLOC_IMPL := dlmalloc
-
-BOARD_SEPOLICY_DIRS += \
-        device/asus/tilapia/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-		file_contexts \
-		genfs_contexts \
-		bluetooth.te \
-		device.te \
-		domain.te \
-		drmserver.te \
-		init_shell.te \
-		file.te \
-		gpsd.te \
-		keystore.te \
-		 lmkd.te \
-		mediaserver.te \
-		rild.te \
-		sensors_config.te \
-		surfaceflinger.te \
-		system_app.te \
-		system_server.te \
-		ueventd.te \
-		vold.te
