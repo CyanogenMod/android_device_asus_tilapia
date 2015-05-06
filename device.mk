@@ -16,12 +16,13 @@
 
 # rild
 PRODUCT_PACKAGES := \
-    rild \
+    rild
 
 PRODUCT_COPY_FILES := \
     device/asus/tilapia/fstab.grouper:root/fstab.grouper \
     device/asus/tilapia/init.recovery.tilapia.rc:root/init.recovery.grouper.rc \
-    device/asus/tilapia/init.tilapia.rc:root/init.grouper.rc
+    device/asus/tilapia/init.tilapia.rc:root/init.grouper.rc \
+	device/asus/grouper/init.grouper.power.rc:root/init.grouper.power.rc
 
 DEVICE_PACKAGE_OVERLAYS := \
     device/asus/tilapia/overlay
