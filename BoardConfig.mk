@@ -37,13 +37,13 @@ USE_PROPRIETARY_AUDIO_EXTENSIONS := false
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_tilapia
 TARGET_RECOVERY_UPDATER_EXTRA_LIBS := libIMCdownload libPrgHandler
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/asus/tilapia
+TARGET_RELEASETOOLS_EXTENSIONS := device/asus/tilapia/releasetool
 
 BOARD_HAL_STATIC_LIBRARIES := libdumpstate.grouper
 
 -include vendor/asus/tilapia/BoardConfigVendor.mk
 include device/asus/grouper/BoardConfigCommon.mk
 
-TARGET_RECOVERY_FSTAB = device/asus/tilapia/fstab.grouper
+TARGET_RECOVERY_FSTAB = device/asus/tilapia/rootdir/root/fstab.grouper
 
 MALLOC_IMPL := dlmalloc

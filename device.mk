@@ -20,9 +20,9 @@ PRODUCT_PACKAGES := \
     libstlport
 
 PRODUCT_COPY_FILES := \
-    device/asus/tilapia/fstab.grouper:root/fstab.grouper \
-    device/asus/tilapia/init.recovery.tilapia.rc:root/init.recovery.grouper.rc \
-    device/asus/tilapia/init.tilapia.rc:root/init.grouper.rc
+    device/asus/tilapia/rootdir/root/fstab.grouper:root/fstab.grouper \
+    device/asus/tilapia/rootdir/root/init.recovery.tilapia.rc:root/init.recovery.grouper.rc \
+    device/asus/tilapia/rootdir/root/init.tilapia.rc:root/init.grouper.rc
 
 DEVICE_PACKAGE_OVERLAYS := \
     device/asus/tilapia/overlay

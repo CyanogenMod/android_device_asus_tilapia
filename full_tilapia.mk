@@ -30,7 +30,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 PRODUCT_NAME := full_tilapia
 PRODUCT_DEVICE := tilapia
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := AOSP on Tilapia
+PRODUCT_MODEL := Tilapia
 
 # Don't restrict vendor folder
 PRODUCT_RESTRICT_VENDOR_FILES := false
