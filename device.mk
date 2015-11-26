@@ -15,8 +15,10 @@
 #
 
 # rild
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
     rild \
+    BasicSmsReceiver \
+    libstlport
 
 PRODUCT_COPY_FILES := \
     device/asus/tilapia/fstab.grouper:root/fstab.grouper \
