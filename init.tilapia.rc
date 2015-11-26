@@ -4,13 +4,9 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug
 
 on init
-    # See storage config details at http://source.android.com/tech/storage/
-    mkdir /mnt/shell/emulated 0700 shell shell
-    mkdir /storage/emulated 0555 root root
-
-    export EXTERNAL_STORAGE /storage/emulated/legacy
-    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
-    export EMULATED_STORAGE_TARGET /storage/emulated
+    # Set init and its forked children's oom_adj.
+    write /proc/1/oom_score_adj -1000
+    mount debugfs debugfs /sys/kernel/debug
 
     # USB OTG support
     mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
@@ -330,7 +326,7 @@ on boot
     chmod 0664 /sys/class/gpio/gpio162/value
     mkdir /data/gps
     chown gps system /data/gps
-    chmod 770 /data/gps
+    chmod 1770 /data/gps
     chown gps system /dev/ttyHS1
     chmod 0660 /dev/ttyHS1
 
@@ -445,10 +441,6 @@ service sensors-config /system/bin/sensors-config
     oneshot
 #Sensor load calibration files end
 
-# virtual sdcard daemon running as media_rw (1023)
-service sdcard /system/bin/sdcard -u 1023 -g 1023 -t 4 -l /data/media /mnt/shell/emulated
-    class late_start
-
 service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk
     class late_start
     disabled
@@ -462,7 +454,7 @@ service bugreport /system/bin/dumpstate -d -p -B \
     keycodes 115 114
 
 # Start GPS daemon
-service gps-daemon /system/bin/glgps -c /system/etc/gps/gpsconfig.xml
+service gps-daemon /system/bin/gps_daemon.sh
   user gps
   group system
   class late_start
@@ -497,7 +489,7 @@ service setup_fs /system/bin/setup_fs \
     group root
     oneshot
 
-service touch_fw_update /system/bin/sh -c "echo /system/etc/firmware/touch_fw.ekt > /sys/bus/i2c/drivers/elan-ktf3k/1-0010/update_fw"
+service touch_fw_update /system/bin/touch_fw_update.sh
     class main
     disabled
     user root
